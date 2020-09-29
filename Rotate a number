@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{   
+    int  n,k,re,r,c,p,count,q,temp;
+    cin>>n;
+    cin>>k;
+    temp=n;
+    count = 0;
+    while(n>0)
+    {
+        n=n/10;
+        count++;
+    }
+    k=k%count;
+    if(k<0)
+    {
+        k=k+count;
+    }
+    p=pow(10,k);
+    q=temp/p;
+    re=temp%p;
+    c=pow(10,count-k);
+    r=re*c+q;
+    cout<<r;
+    
+    
+    
+    return 0;
+}
