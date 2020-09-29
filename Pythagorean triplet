@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{   
+    int a,b,c;
+    cin>>a;
+    cin>>b;
+    cin>>c;
+    int max=a;
+    if(b>a)
+    {
+        max=b;
+    }
+    if(c>b)
+    {
+        max=c;
+    }
+    if(max=a)
+    {
+      if((b*b+c*c)==(a*a)) 
+       cout<<"true";
+    }else if(max=b)
+    {
+      if((a*a+c*c)==(b*b))
+        cout<<"true";
+        
+    }else if(max=c)
+    {
+        if((b*b+a*a)==(c*c))
+        cout<<"true";
+    }
+    else
+    {
+        cout<<"false";
+    }
+
+    return 0;
+}
