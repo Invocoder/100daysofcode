@@ -8,7 +8,7 @@ int main()
     while(n!=0)
     {
         n=n/10;
-        count++;
+        count++; //increment count by 1  
     }
     div=pow(10,count-1);
     while(div!=0)
