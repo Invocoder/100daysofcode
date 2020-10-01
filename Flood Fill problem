@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+void floodfill(int sr,int sc,int n, int m ,int* arr, string ans,bool* visited){
+    
+    if(sr<0||sc<0||sr>n||sc>m|| *(arr+sr*(m+1)+sc)==1 || *(visited+sr*(m+1)+sc)==true ){
+        return;
+    }
+    else if(sr==n&&sc==m){
+        cout<<ans<<endl;
+        return;
+    }
+    
+    
+    
+  *(visited+sr*(m+1)+sc)=true;
+    
+    floodfill(sr-1,sc,n,m,(int *)arr,ans+"t", (bool *)visited);
+    
+    floodfill(sr,sc-1,n,m,(int *)arr,ans+"l",(bool *)visited);
+    
+    floodfill(sr+1,sc,n,m,(int *)arr,ans+"d",(bool *)visited);
+    
+    floodfill(sr,sc+1,n,m,(int *)arr,ans+"r",(bool *)visited);
+   *(visited+sr*(m+1)+sc)=false;
+}
+int main()
+{
+    int n,m;
+    cin>>n>>m;
+    int arr[n][m];
+    for(int i=0;i<n;i++){
+        for (int j=0;j<m;j++){
+           cin>> arr[i][j];
+        }
+    }
+    bool visited[n][m];
+    
+     for(int i = 0; i < n; i++){
+         for(int j = 0; j < m; j++){
+             visited[i][j]=false;
+         }
+     }
+
+    
+    floodfill(0,0,n-1,m-1,(int *)arr,"",(bool *)visited);
+}
